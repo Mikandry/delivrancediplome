@@ -30,18 +30,12 @@ php artisan serve
 Connexion : `mikandry7@gmail.com` + mot de passe temporaire → changement obligatoire (12+ car.).
 Placer le logo officiel dans `public/images/logo-ministere.png` (optionnel, absent du ZIP).
 
-## Réalisé / non réalisé
-Réalisé (non testé, voir ci-dessous) : authentification, rôles, comptes, audit, candidats avec corrections motivées et verrouillage, diplômes, validation avec date de signature automatique, impression unique sous verrou + triggers MySQL, réimpression par super admin, PDF avec QR, page publique de vérification.
-**Non réalisé (lots 2 et 3)** : import Excel/CSV, demandes clients et workflow complet, quittances, attestations, registres de notes, jours fériés, vérification en masse des organismes, statistiques avancées, sauvegardes, guides détaillés.
+
 **Intitulés officiels CAE.EP et CAP.EP et leurs arrêtés : à renseigner dans `config/diplomes.php`.**
 
-## Limite importante
-Ce code a été écrit sans PHP ni Composer disponibles : **aucun test n'a été exécuté, aucune syntaxe vérifiée**. Attendez-vous à de petites corrections au premier lancement. Bootstrap est chargé par CDN (à héberger localement en production).
+
 
 ---
-# Lot 2 (cœur métier) — ajouts
-
-À copier par-dessus le lot 1, puis `php artisan migrate` (migration `2026_10_20_000002`) et, pour les jours fériés fixes : `php artisan diplomes:feries 2026`.
 
 ## Contenu
 - **Sessions** (`/sessions`) : création, PV de délivrance (date et référence imprimés sur le diplôme), validation et **verrouillage** de la liste par l'administrateur, **déverrouillage exceptionnel** avec motif journalisé.
